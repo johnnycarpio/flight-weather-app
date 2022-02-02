@@ -1,5 +1,4 @@
 var userOrigin = document.getElementById("startingpoint");
-var userDestination = document.getElementById("destination");
 var userDate = document.getElementById("flightdate");
 var buttonEl = document.getElementById("btn");
 var apiKey = "dbcad625cbmsh212b0e604919c31p12a3ffjsnba3ceac3d041";
@@ -40,11 +39,31 @@ var getFlightInfo = function (code, dateLocal) {
             });
         }
     })
-
-
 };
 
+var getWeatherInfo = function () {
+
+    var weatherUrl = `https://visual-crossing-weather.p.rapidapi.com/forecast?aggregateHours=24&location=${city}&contentType=json&unitGroup=us&shortColumnNames=0`
+
+    fetch(weatherUrl, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "visual-crossing-weather.p.rapidapi.com",
+            "x-rapidapi-key": "9d427ea0fbmshcb3ba7924b120dep185351jsnaca44db42a6f"
+        }
+    }).then(function (response) {
+        if (response.ok) {
+            console.log(response);
+            response.json().then(function (data) {
+                console.log(data);
+            });
+        }
+    })
+}
+
+getWeatherInfo();
 
 
 
-    buttonEl.addEventListener("click", flightHandler);
+
+buttonEl.addEventListener("click", flightHandler);
