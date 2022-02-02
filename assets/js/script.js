@@ -36,12 +36,14 @@ var getFlightInfo = function (code, dateLocal) {
             console.log(response);
             response.json().then(function (data) {
                 console.log(data);
+                // console.log(data[0].arrival.airport.municipalityName);
+                getWeatherInfo(data[0].arrival.airport.municipalityName);
             });
         }
     })
 };
 
-var getWeatherInfo = function () {
+var getWeatherInfo = function (city) {
 
     var weatherUrl = `https://visual-crossing-weather.p.rapidapi.com/forecast?aggregateHours=24&location=${city}&contentType=json&unitGroup=us&shortColumnNames=0`
 
@@ -59,9 +61,7 @@ var getWeatherInfo = function () {
             });
         }
     })
-}
-
-getWeatherInfo();
+};
 
 
 
