@@ -22,26 +22,24 @@
 
     <main>
         <!-- customer input start -->
-        <container>
+        <section class=firstcontainer>
             <div class="customerinput">
                 <div class="userorigin">
-                    <input type="text" id="origin" placeholder="Enter Origin.." />
+                    <input type="text" id="startingpoint" placeholder="Enter Origin.." />
                 </div>
                 <div class="userdestination">
                     <input type="text" id="destination" placeholder="Enter Destination.." />
                 </div>
                 <div class="userdate">
-                    <input type="date" id="date" />
+                    <input type="date" id="flightdate" />
                 </div>
                 <div class="button">
                     <button class="btn" id="btn">Search Flights</button>
                 </div>
             </div>
-        </container>
-        <!-- customer input end -->
+            <!-- customer input end -->
 
-        <!-- covid info start -->
-        <container>
+            <!-- covid info start -->
             <div class="covidinfo">
                 <div class="totalcases">
                     <h3>Total Cases</h3>
@@ -56,33 +54,23 @@
                     <p>Info Goes Here</p>
                 </div>
             </div>
-        </container>
+        </section>
         <!-- covid info end -->
 
         <!-- flight info start -->
-        <container>
+        <section class="secondcontainer">
             <div class="flights">
-                <div>
-                    LAX > JFK
-                </div>
-                <div>
-                    LAX > LBC
-                </div>
-                <div>
-                    LAX > IAH
-                </div>
-                <div>
-                    LAX > BUR
-                </div>
-                <div>
-                    LAX > HI
-                </div>
+                <ul>
+                    <li>LAX > JFK</li>
+                    <li>LAX > JFK</li>
+                    <li>LAX > JFK</li>
+                    <li>LAX > JFK</li>
+                    <li>LAX > JFK</li>
+                </ul>
             </div>
-        </container>
-        <!-- flight info end -->
+            <!-- flight info end -->
 
-        <!-- weather info start -->
-        <container>
+            <!-- weather info start -->
             <div class="weather">
                 <div>
                     <h3>Los Angeles</h3>
@@ -91,10 +79,11 @@
                     <p>Weather Goes Here</p>
                 </div>
             </div>
-        </container>
-        <!-- weather info end -->
+            <!-- weather info end -->
+        </section>
     </main>
-
+<script src="assets/js/script.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </body>
 
 </html>
