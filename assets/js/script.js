@@ -4,7 +4,7 @@ var buttonEl = document.getElementById("btn");
 var apiKey = "dbcad625cbmsh212b0e604919c31p12a3ffjsnba3ceac3d041";
 
 //Selects Flight Data card
-var flight_info = document.querySelector('#flight_info');
+var flightInfo = document.querySelector('#flight_info');
 
 var flightHandler = function (event) {
     event.preventDefault();
@@ -32,7 +32,7 @@ var getFlightInfo = function (code, dateLocal) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "aerodatabox.p.rapidapi.com",
-            "x-rapidapi-key": "dbcad625cbmsh212b0e604919c31p12a3ffjsnba3ceac3d041"
+            "x-rapidapi-key": apiKey
         }
     }).then(function (response) {
         if (response.ok) {
@@ -132,24 +132,24 @@ var getWeatherInfo = function (city) {
 
 
 function displayFlightData(data) {
-    var flight_status = data[0].status;
-    var depart_location = data[0].departure.airport.name;
-    var depart_time = data[0].departure.scheduledTimeLocal;
-    var arrival_location = data[0].arrival.airport.name;
-    var plane_type= data[0].aircraft.model;
+    var flightStatus = data[0].status;
+    var iataName = data[0].departure.airport.name;
+    var departureTime = data[0].departure.scheduledTimeLocal;
+    var arrivalLocation = data[0].arrival.airport.name;
+    var planeModel = data[0].aircraft.model;
 
     //Titles can be used for the data displayed
     //var data_titles = ['Status', 'Departure City', 'Departure Time', 'Arrival City', 'Aircraft'];
-    var flight_data = [flight_status, depart_location, depart_time, arrival_location, plane_type];
+    var flightData = [flightStatus, iataName, departureTime, arrivalLocation, planeModel];
 
-    for(i=0; i<flight_data.length; i++){
+    for(i=0; i<flightData.length; i++){
         //Creates a list element for each item in the flight_data array
         var info = document.createElement('li');
         // info.textContent = data_titles[i] + ':' + flight_data[i]; //Can be used to display data with titles
 
         //Sets the text content to the data returned from the API call
-        info.textContent = flight_data[i];
-        flight_info.append(info);
+        info.textContent = flightData[i];
+        flightInfo.append(info);
     }
 
 }
