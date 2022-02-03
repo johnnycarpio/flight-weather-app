@@ -118,7 +118,7 @@ var getWeatherInfo = function (city) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "visual-crossing-weather.p.rapidapi.com",
-            "x-rapidapi-key": "9d427ea0fbmshcb3ba7924b120dep185351jsnaca44db42a6f"
+            "x-rapidapi-key": apiKey
         }
     }).then(function (response) {
         if (response.ok) {
