@@ -25,7 +25,6 @@ var flightHandler = function (event) {
 
 var getFlightInfo = function (code, dateLocal) {
 
-
     var apiUrl = `https://aerodatabox.p.rapidapi.com/flights/number/${code}/${dateLocal}`
 
     fetch(apiUrl, {
@@ -125,6 +124,7 @@ var getWeatherInfo = function (city) {
             console.log(response);
             response.json().then(function (data) {
                 console.log(data);
+                getState(data[0].arrival.airport.iata);
             });
         }
     })
