@@ -86,6 +86,15 @@ var getCovidData = function (stateName) {
             console.log(response);
             response.json().then (function (covidData) {
                 console.log(covidData);
+
+                confirmedCases = parseInt(covidData.data[0].confirmed);
+                activeCases = parseInt(covidData.data[0].active);
+                deathNumber = parseInt(covidData.data[0].deaths);
+
+                document.querySelector("#totalCaseNum").textContent = confirmedCases;
+                document.querySelector("#activeCaseNum").textContent = activeCases;
+                document.querySelector("#deathNum").textContent = deathNumber;
+
             })
         }
         
