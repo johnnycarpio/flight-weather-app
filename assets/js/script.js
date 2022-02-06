@@ -7,6 +7,7 @@ var apiKey = "dbcad625cbmsh212b0e604919c31p12a3ffjsnba3ceac3d041";
 var flightInfo = document.querySelector('#flight_info');
 
 var flightHandler = function (event) {
+
     event.preventDefault();
     var code = userOrigin.value.trim();
 
@@ -101,10 +102,12 @@ var getCovidData = function (stateName) {
 };
 
 var displayCovidData = function(covidData) {
+    displayedCity = (covidData.data[0].region.province);
     confirmedCases = parseInt(covidData.data[0].confirmed);
     activeCases = parseInt(covidData.data[0].active);
     deathNumber = parseInt(covidData.data[0].deaths);
 
+    document.querySelector("#covidcity").textContent = displayedCity;
     document.querySelector("#totalCaseNum").textContent = confirmedCases;
     document.querySelector("#activeCaseNum").textContent = activeCases;
     document.querySelector("#deathNum").textContent = deathNumber;
@@ -141,6 +144,8 @@ function displayFlightData(data) {
     //Titles can be used for the data displayed
     //var data_titles = ['Status', 'Departure City', 'Departure Time', 'Arrival City', 'Aircraft'];
     var flightData = [flightStatus, iataName, departureTime, arrivalLocation, planeModel];
+
+    flightInfo.innerHTML = "";
 
     for(i=0; i<flightData.length; i++){
         //Creates a list element for each item in the flight_data array
