@@ -48,7 +48,7 @@
                 <input
                   class="input is-info"
                   type="text"
-                  placeholder="Info input"
+                  placeholder="FLIGHT#"
                   id="input"
                 />
                 <button class="button is-success" id="btn">
@@ -62,17 +62,16 @@
               >
                 <h1 class="subtitle is-2 has-text-centered">FLIGHT STATUS</h1>
                 <h2 class="subtitle is-3 has-text-centered" id="date">
-                  Monday, February 7, 2022
                 </h2>
-                <ul>
-                  <li
+                <ul id="status-list">
+                  <!-- <li
                     class="subtitle is-4 has-text-centered"
                     id="flight-cities"
                   >
-                    <i class="fa-solid fa-plane-departure"></i>LosAngeles
+                    <i class="fa-solid fa-plane-departure"></i>LosAngeles(LAX)
                     <i class="fa-solid fa-arrow-alt-circle-right"></i>
-                    <i class="fa-solid fa-plane-arrival"></i>Nashville
-                  </li>
+                    <i class="fa-solid fa-plane-arrival"></i>Nashville(NTT)
+                  </li> -->
                   <li class="subtitle is-4 has-text-centered">
                     Live Status - Unknown
                   </li>
@@ -92,7 +91,7 @@
                 class="card-content is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd"
               >
               <h1 class="subtitle is-2 has-text-centered">Covid-19 statistics</h1>
-              <h2 class="subtitle is-3 has-text-centered" id="state-name">California</h2>
+              <h2 class="subtitle is-2 has-text-centered" id="state-name"></h2>
                 <div class="columns">
                   <div class="column">
                     <div class="card">
@@ -101,8 +100,8 @@
                         id="covid-card-total"
                       >
                     <p>Total Cases</p>
-                    <p class="subtitle is-4">2,367,000</p>
-                    <p class="subtitle is-7">Reported today +6400</p>
+                    <p class="subtitle is-4" id="total-cases"></p>
+                    <p class="subtitle is-7" id="cases-diff"></p>
                 </div>
                     </div>
                   </div>
@@ -113,8 +112,8 @@
                         id="covid-card-new"
                       >
                       <p>New Cases</p>
-                      <p class="subtitle is-4">+12,500</p>
-                      <p class="subtitle is-7">Jan 11-18</p></div>
+                      <p class="subtitle is-4" id="new-cases"></p>
+                      <p class="subtitle is-7" id="new-cases-date"></p></div>
                     </div>
                   </div>
                   <div class="column">
@@ -124,8 +123,8 @@
                         id="covid-card-deaths"
                       >
                       <p>Deaths</p>
-                      <p class="subtitle is-4">38,500</p>
-                      <p class="subtitle is-7">Reported Yesterday +28</p></div>
+                      <p class="subtitle is-4" id="deaths"></p>
+                      <p class="subtitle is-7" id="deaths-diff"></p></div>
                     </div>
                     </div>
                   </div>
