@@ -1,6 +1,7 @@
 var userInputEl = document.getElementById("input");
 var userDate = document.getElementById("flightdate");
 var buttonEl = document.getElementById("btn");
+var covidInfoEl = document.getElementById("covid-container")
 var apiKey = "dbcad625cbmsh212b0e604919c31p12a3ffjsnba3ceac3d041";
 
 //Selects Flight Data card
@@ -12,8 +13,13 @@ var flightHandler = function (event) {
 
   if (code) {
     userInputEl.value = "";
+    userInputEl.classList.remove("is-danger")
+    covidInfoEl.classList.remove("hide")
+
   } else {
-    userInputEl.placeholder = "YOU MUST ENTER AIRPORT";
+    userInputEl.placeholder = "";
+    userInputEl.classList.remove("is-info")
+    userInputEl.classList.add("is-danger")
   }
 
   getFlightInfo(code);
@@ -136,27 +142,21 @@ function displayFlightData(data) {
   var flightStatus = data[0].status;
   var timeFormat = departureTime.split(" ");
   var formattedTime = new Date(timeFormat[0]).toLocaleDateString();
+  var hour = timeFormat[1];
+  formattedHour = hour.split("-");
 
   var statusListEl = document.getElementById("status-list");
   document.getElementById("date").textContent = formattedTime;
   var cityNameEl = document.createElement("li");
   cityNameEl.classList.add("subtitle", "is-4", "has-text-centered");
   cityNameEl.id = "flight-cities";
-//   var iconDepEl = document.createElement("i");
-//   iconDepEl.classList.add("fa-solid", "fa-plane-departure");
-//   var iconArrowEl = document.createElement("i");
-//   iconArrowEl.classList.add("fa-solid", "fa-arrow-alt-circle-right");
-//   var iconArrEl = document.createElement("i");
-//   iconArrEl.classList.add("fa-solid", "fa-plane-arrival");
-  
-
   statusListEl.appendChild(cityNameEl);
-  cityNameEl.innerHTML = "<i class='fa-solid fa-plane-departure'></i>";
-  cityNameEl.textContent = `${cityNameDep}(${iataDepName})`;
-//   cityNameEl.appendChild('<i class="fa-solid fa-arrow-alt-circle-right"></i>');
-//   cityNameEl.appendChild('<i class="fa-solid fa-plane-arrival"></i>');
-  cityNameEl.textContent += `${cityNameArr}(${iataNameArr})`;
-  cityNameEl.innerHTML = `<i class="fa-solid fa-plane-departure"></i>${cityNameDep}(${iataDepName}) <i class="fa-solid fa-arrow-alt-circle-right"></i> <i class="fa-solid fa-plane-arrival"></i>${cityNameArr}(${iataNameArr})`
+  cityNameEl.innerHTML = `<i class="fa-solid fa-plane-departure"></i>${cityNameDep}(${iataDepName}) <i class="fa-solid fa-arrow-alt-circle-right"></i> <i class="fa-solid fa-plane-arrival"></i>${cityNameArr}(${iataNameArr})`;
+  document.getElementById("time").textContent = `Time - ${formattedHour[0]}`;
+  document.getElementById(
+    "status"
+  ).textContent = `Live status - ${flightStatus}`;
+  document.getElementById("aircraft").textContent = `Aircraft - ${planeModel}`;
 }
 
 buttonEl.addEventListener("click", flightHandler);

@@ -85,4 +85,8 @@ body {
     margin-top: 20px;
   }
 
+ .columns .hide {
+      display: none;
+  }
+
 
