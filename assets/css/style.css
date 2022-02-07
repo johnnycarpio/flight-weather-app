@@ -1,84 +1,88 @@
 * {
-    margin: 0
+    font-family: 'Exo', sans-serif;
+    color : #093159;
+    border: 0px;
 }
 
-header {
-    background-color: #312722;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    text-align: center;
-    color: white;
-}
+body {
+    background : #99CCFF;
+    background : rgba(153, 204, 255, 1);
+  } 
 
-main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin-top: 10%;
+.nav-bar {
+        background : linear-gradient(0deg, rgba(102, 172, 215, 1) 0%, rgba(102, 170, 215, 1) 0%, rgba(102, 170, 215, 1) 0.05%, rgba(71, 164, 215, 0.97) 12.27%, rgba(50, 160, 215, 0.95) 24.24%, rgba(36, 157, 215, 0.92) 35.74%, rgba(32, 156, 215, 0.9) 46.25%, rgba(30, 156, 215, 1) 100%);
+        align-items: center;
+        padding-bottom: 20px;
 }
+.nav-bar h1 {
+    font-size : 60px;
+    font-weight: bold;
+    color : #093159;
+    color : rgb(9, 49, 89);
+  }
+.nav-bar p {
+    font-size : 25px;
+    color : #093159;
+  }
 
-.firstcontainer {
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-}
-
-.secondcontainer {
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
-    margin-top: 20%;
-}
-
-.customerinput {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  #card-input {
+    background : linear-gradient(0deg, rgba(102, 172, 215, 1) 0%, rgba(102, 170, 215, 1) 0%, rgba(102, 170, 215, 1) 0.05%, rgba(71, 164, 215, 0.97) 12.27%, rgba(50, 160, 215, 0.95) 24.24%, rgba(36, 157, 215, 0.92) 35.74%, rgba(32, 156, 215, 0.9) 46.25%, rgba(30, 156, 215, 1) 100%);
+    border-radius : 0px;
+    box-shadow : 0px 0px 10px rgba(12, 47, 76, 0.85);
     border-radius: 25px;
-    background-color: #312722;
-    padding: 10px;
-    width: 200px;
-    height: 150px;
-}
+  }
 
-.covidinfo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  #input {
+    width: 30%;
+  }
+  #flight-status {
+    background : linear-gradient(0deg, rgba(102, 172, 215, 1) 0%, rgba(102, 170, 215, 1) 0%, rgba(102, 170, 215, 1) 0.05%, rgba(71, 164, 215, 0.97) 12.27%, rgba(50, 160, 215, 0.95) 24.24%, rgba(36, 157, 215, 0.92) 35.74%, rgba(32, 156, 215, 0.9) 46.25%, rgba(30, 156, 215, 1) 100%);
+    border-radius : 0px;
+    box-shadow : 0px 0px 10px rgba(12, 47, 76, 0.85);
     border-radius: 25px;
-    background-color: #312722;
-    padding: 10px;
-    width: 500px;
-    height: 150px;
-    color: white;
-}
+    margin-top: 20px;
+  }
 
-.flights {
-    display: flex;
-    flex-direction: column;
+  #flight-status .card-content ul li {
+    color : #093159;
+
+  }
+
+  #flight-status .card-content h1, #flight-status .card-content h2 {
+    color : #093159;
+  }
+
+  #date {
+      margin-bottom: 40px;
+      margin-top: -22px;
+  }
+
+
+  #flight-cities {
+    word-spacing: 30px;
+  }
+
+  #covid-card {
+    background : #CCE9F4;
+    background : rgba(204, 233, 244, 1);
+    box-shadow : 0px 0px 4px rgba(0, 0, 0, 0.65);
     border-radius: 25px;
-    background-color: #312722;
-    padding: 10px;
-    width: 200px;
-    height: 150px;
-    justify-content: center;
-    color: white;
-}
+  }
+  
 
-.flights ul {
-    list-style-type: none;
-}
-
-.weather {
-    display: flex;
-    flex-direction: column;
+  .covid-card-style {
+    background : linear-gradient(0deg, rgba(102, 172, 215, 1) 0%, rgba(102, 170, 215, 1) 0%, rgba(102, 170, 215, 1) 0.05%, rgba(71, 164, 215, 0.97) 12.27%, rgba(50, 160, 215, 0.95) 24.24%, rgba(36, 157, 215, 0.92) 35.74%, rgba(32, 156, 215, 0.9) 46.25%, rgba(30, 156, 215, 1) 100%);
+    box-shadow : 0px 0px 10px rgba(12, 47, 76, 0.85);
     border-radius: 25px;
-    background-color: #312722;
-    padding: 10px;
-    width: 500px;
-    height: 150px;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
+    margin-top: 10px;
+  }
+
+  #weather-info {
+    background : #CCE9F4;
+    background : rgba(204, 233, 244, 1);
+    box-shadow : 0px 0px 4px rgba(0, 0, 0, 0.65);
+    border-radius: 25px;
+    margin-top: 20px;
+  }
+
+
