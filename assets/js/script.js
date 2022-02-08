@@ -178,8 +178,8 @@ function displayWeatherData(data) {
     document.getElementById("tempIcon").textContent = conditionIcon;
     document.getElementById("humidity").textContent = "Humidity: " + humidity + "%";
     document.getElementById("precip").textContent = "Chance of Rain: " + precip + "%";
-    document.getElementById("visibility").textContent = "Visbility: " + visibility;
-    document.getElementById("wspd").textContent = "Wind Speed: " + windSpeed;
+    document.getElementById("visibility").textContent = "Visbility: " + visibility + " MI";
+    document.getElementById("wspd").textContent = "Wind Speed: " + windSpeed + " MPH";
 
 }
 
