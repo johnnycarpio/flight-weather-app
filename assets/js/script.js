@@ -124,7 +124,7 @@ var getWeatherInfo = function (city) {
     if (response.ok) {
       console.log(response);
       response.json().then(function (data) {
-        console.log(data);
+        displayWeatherData(data);
       });
     }
   });
@@ -156,6 +156,31 @@ function displayFlightData(data) {
     "status"
   ).textContent = `Live status - ${flightStatus}`;
   document.getElementById("aircraft").textContent = `Aircraft - ${planeModel}`;
+}
+
+function displayWeatherData(data) {
+    
+    // console.log(Object.keys(data.locations));
+
+    const cityName = Object.keys(data.locations)[0];
+    console.log(cityName);
+
+    console.log(data.locations[cityName].currentConditions.temp);
+
+    var temp = data.locations[cityName].currentConditions.temp;
+    var conditionIcon = data.locations[cityName].currentConditions.icon;
+    var humidity = data.locations[cityName].currentConditions.humidity;
+    var precip = data.locations[cityName].currentConditions.precip;
+    var visibility = data.locations[cityName].currentConditions.visibility;
+    var windSpeed = data.locations[cityName].currentConditions.wspd;
+
+    document.getElementById("temperature").textContent = temp + " Celcius";
+    document.getElementById("tempIcon").textContent = conditionIcon;
+    document.getElementById("humidity").textContent = "Humidity: " + humidity + "%";
+    document.getElementById("precip").textContent = "Chance of Rain: " + precip + "%";
+    document.getElementById("visibility").textContent = "Visbility: " + visibility;
+    document.getElementById("wspd").textContent = "Wind Speed: " + windSpeed;
+
 }
 
 buttonEl.addEventListener("click", flightHandler);

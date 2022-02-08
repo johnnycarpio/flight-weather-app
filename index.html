@@ -26,21 +26,25 @@
   </head>
 
   <body>
+      <!-- header start -->
     <header>
       <nav
-        class="nav-bar has-text-centered is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd"
-      >
+        class="nav-bar has-text-centered is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
         <h1>FLIGHT INFORMATION</h1>
         <p>Airport flights, covid-19 information and weather conditions</p>
       </nav>
     </header>
-
+    <!-- header end -->
+<!-- main container start -->
     <main>
+
       <div
         class="columns is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd"
       >
+      <!-- left columns start -->
         <div class="column is-6">
           <div class="column">
+              <!-- input and button card -->
             <div class="card" id="card-input">
               <div
                 class="card-content is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd has-text-centered"
@@ -56,6 +60,7 @@
                 </button>
               </div>
             </div>
+            <!-- flight status card -->
             <div class="card" id="flight-status">
               <div
                 class="card-content is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd"
@@ -74,8 +79,12 @@
             </div>
           </div>
         </div>
+        <!-- left column end -->
+
+        <!-- right column start -->
         <div class="column is-6">
           <div class="column">
+              <!-- COVID statistics start -->
             <div class="card" id="covid-card">
               <div
                 class="card-content is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd"
@@ -121,19 +130,49 @@
                 </div>
               
             </div>
-            <div class="card" id="weather-info">
-                <div class="card-content card-content is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
-                  <div class="content">
-                      <h1 class="has-text-centered">Weather Conditions</h1>
-                      <h2>California</h2>
-                      <ul>
-                          <li>Wind: 30mph</li>
-                          <li>Wind: 30mph</li>
-                          <li>Wind: 30mph</li>
-                      </ul>
+            <!-- COVID statistics end -->
+
+            <!-- weather start -->
+            <div class="card" id="covid-card">
+                <div
+                  class="card-content is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd"
+                >
+                <h1 class="subtitle is-2 has-text-centered">Weather</h1>
+                <h2 class="subtitle is-2 has-text-centered" id="state-name"></h2>
+                  <div class="columns" id="covid-container">
+                    <div class="column">
+                      <div class="card">
+                        <div
+                          class="card-content covid-card-style"
+                          id="covid-card-total"
+                        >
+                      <p>Temperature</p>
+                      <p class="subtitle is-4" id="temperature"></p>
+                      <p class="subtitle is-7" id="tempIcon"></p>
                   </div>
-                </div>
+                      </div>
+                    </div>
+                    <div class="column">
+                      <div class="card">
+                        <div
+                          class="card-content covid-card-style"
+                          id="covid-card-new"
+                        >
+                        <p>Conditions</p>
+                        <p class="subtitle is-6" id="humidity"></p>
+                        <p class="subtitle is-6" id="precip"></p>
+                        <p class="subtitle is-6" id="visibility"></p>
+                        <p class="subtitle is-6" id="wspd"></p>
+                    </div>
+                      </div>
+                    </div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                
               </div>
+              <!-- weather end -->
             </div>
           </div>
         </div>
