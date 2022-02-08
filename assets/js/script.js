@@ -39,10 +39,16 @@ var getFlightInfo = function (code, dateLocal) {
             console.log(response);
             response.json().then(function (data) {
                 console.log(data);
-                getWeatherInfo(data[0].arrival.airport.municipalityName);
-                getState(data[0].arrival.airport.iata);
-                displayFlightData(data);
+                if (data.length > 0) {
+                    getWeatherInfo(data[0].arrival.airport.municipalityName);
+                    getState(data[0].arrival.airport.iata);
+                    displayFlightData(data);
+                } else {
+                    alert("Enter valid flight number and/or date")
+                }
             });
+        } else {
+            alert("Enter valid flight number and/or date")
         }
     })
 };
@@ -67,7 +73,7 @@ var getState = function (state) {
     }
 })
 .catch(err => {
-	console.error(err);
+	console.error(err); 
 });
 }
 
