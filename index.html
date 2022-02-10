@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Flight, Covid-19 and weather info</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -30,7 +30,7 @@
     <header>
       <nav
         class="nav-bar has-text-centered is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
-        <h1>FLIGHT INFORMATION</h1>
+        <h1>US FLIGHT INFORMATION</h1>
         <p>Airport flights, covid-19 information and weather conditions</p>
       </nav>
     </header>
@@ -54,14 +54,15 @@
                   type="text"
                   placeholder="FLIGHT#"
                   id="input"
-                />
+                />                
                 <button class="button is-success" id="btn">
                   Search Flights
                 </button>
+                <p class="subtitle is-7 has-text-danger has-text-left" id="wrong-answer"></p>
               </div>
             </div>
             <!-- flight status card -->
-            <div class="card" id="flight-status">
+            <div class="card"  id="flight-status">
               <div
                 class="card-content is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd"
               >
@@ -133,23 +134,19 @@
             <!-- COVID statistics end -->
 
             <!-- weather start -->
-            <div class="card" id="covid-card">
+            <div class="card" id="weather-card">
                 <div
                   class="card-content is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd"
                 >
                 <h1 class="subtitle is-2 has-text-centered">Weather</h1>
                 <h2 class="subtitle is-2 has-text-centered" id="state-name"></h2>
-                  <div class="columns" id="covid-container">
+                  <div class="columns hide" id="weather-container">
                     <div class="column">
                       <div class="card">
-                        <div
-                          class="card-content covid-card-style"
-                          id="covid-card-total"
-                        >
-                      <p>Temperature</p>
-                      <p class="subtitle is-4" id="temperature"></p>
-                      <p class="subtitle is-7" id="tempIcon"></p>
-                  </div>
+                        <div class="card-content covid-card-style" id="weather-temp">
+                          <h2 class="subtitle is-3">Temperature</h2>
+                          <p class="subtitle is-4" id="temperature"></p>
+                        </div>
                       </div>
                     </div>
                     <div class="column">
@@ -158,7 +155,7 @@
                           class="card-content covid-card-style"
                           id="covid-card-new"
                         >
-                        <p>Conditions</p>
+                        <h2 class="subtitle is-3">Conditions</h2>
                         <p class="subtitle is-6" id="humidity"></p>
                         <p class="subtitle is-6" id="precip"></p>
                         <p class="subtitle is-6" id="visibility"></p>
