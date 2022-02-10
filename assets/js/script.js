@@ -84,6 +84,7 @@ var getFlightInfo = function (code) {
           userInputEl.placeholder = "";
           userInputEl.classList.remove("is-info");
           userInputEl.classList.add("is-danger");
+          wrongAnswerEl.id = "wrong-answer"
           wrongAnswerEl.textContent = "Wrong Flight Number";
           covidInfoEl.classList.add("hide");
           weatherInfoEl.classList.add("hide");
@@ -92,17 +93,6 @@ var getFlightInfo = function (code) {
           stateNameEl.innerHTML = "";
         }
       });
-    } else {
-      userInputEl.placeholder = "";
-      userInputEl.classList.remove("is-info");
-      userInputEl.classList.add("is-danger");
-      wrongAnswerEl.textContent = "Wrong Flight Number";
-      covidInfoEl.classList.add("hide");
-      weatherInfoEl.classList.add("hide");
-      statusListEl.innerHTML = "";
-      dateEl.innerHTML = "";
-      stateNameEl.innerHTML = "";
-
     }
   });
 };
