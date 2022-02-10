@@ -40,10 +40,6 @@ var flightHandler = function (event) {
     localStorage.setItem("searchedFlight", "[]");
   }
 
-  //create array and push searched flight into it
-
-
-
 
   if (code) {
     userInputEl.value = "";
