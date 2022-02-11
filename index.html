@@ -25,14 +25,17 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
 
-  <body>
+  <body class="light-theme-body">
       <!-- header start -->
     <header>
       <nav
-        class="nav-bar has-text-centered is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
+        class="nav-bar light-theme-nav has-text-centered is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd" id="nav">
         <h1>US FLIGHT INFORMATION</h1>
         <p>Airport flights, covid-19 information and weather conditions</p>
       </nav>
+      <div class="is-flex is-justify-content-center button-container">
+        <button class="button is-dark dark-theme-button" id="btn-switch-theme">DARK</button>
+      </div>
     </header>
     <!-- header end -->
 <!-- main container start -->
@@ -45,7 +48,7 @@
         <div class="column is-6">
           <div class="column">
               <!-- input and button card -->
-            <div class="card" id="card-input">
+            <div class="card light-theme-input" id="card-input">
               <div
                 class="card-content is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd has-text-centered"
               >
@@ -55,14 +58,14 @@
                   placeholder="FLIGHT#"
                   id="input"
                 />                
-                <button class="button is-success" id="btn">
+                <button class="button light-theme-button" id="btn">
                   Search Flights
                 </button>
                 <p class="subtitle is-7 has-text-danger has-text-left" id="wrong-answer"></p>
               </div>
             </div>
             <!-- flight status card -->
-            <div class="card"  id="flight-status">
+            <div class="card light-theme-status"  id="flight-status">
               <div
                 class="card-content is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd"
               >
@@ -86,17 +89,60 @@
         <div class="column is-6">
           <div class="column">
               <!-- COVID statistics start -->
-            <div class="card" id="covid-card">
+            <div class="card light-theme-covid" id="covid-card">
               <div
                 class="card-content is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd"
               >
               <h1 class="subtitle is-2 has-text-centered">Covid-19 statistics</h1>
+              <!-- <div class="dropdown">
+                <div class="dropdown-trigger">
+                  <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                    <span>Search by city</span>
+                    <span class="icon is-small">
+                      <i class="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                  </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                  <div class="dropdown-content">
+                    <a href="#" class="dropdown-item">
+                      Dropdown item
+                    </a>
+                    <a class="dropdown-item">
+                      Other dropdown item
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="dropdown">
+                <div class="dropdown-trigger">
+                  <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                    <span>Search by city</span>
+                    <span class="icon is-small">
+                      <i class="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                  </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                  <div class="dropdown-content">
+                    <a href="#" class="dropdown-item">
+                      Dropdown item
+                    </a>
+                    <a class="dropdown-item">
+                      Other dropdown item
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <button class="button is-success" id="btn">
+                Search
+              </button> -->
               <h2 class="subtitle is-2 has-text-centered" id="state-name"></h2>
-                <div class="columns hide" id="covid-container">
+                <div class="columns" id="covid-container">
                   <div class="column">
-                    <div class="card">
+                    <div class="card is-desktop">
                       <div
-                        class="card-content covid-card-style"
+                        class="card-content light-theme-covid-card"
                         id="covid-card-total"
                       >
                     <p>Total Cases</p>
@@ -108,7 +154,7 @@
                   <div class="column">
                     <div class="card">
                       <div
-                        class="card-content covid-card-style"
+                        class="card-content light-theme-covid-card"
                         id="covid-card-new"
                       >
                       <p>New Cases</p>
@@ -119,7 +165,7 @@
                   <div class="column">
                     <div class="card">
                       <div
-                        class="card-content covid-card-style"
+                        class="card-content light-theme-covid-card"
                         id="covid-card-deaths"
                       >
                       <p>Deaths</p>
@@ -134,16 +180,16 @@
             <!-- COVID statistics end -->
 
             <!-- weather start -->
-            <div class="card" id="weather-card">
+            <div class="card light-theme-weather" id="weather-card">
                 <div
                   class="card-content is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd"
                 >
                 <h1 class="subtitle is-2 has-text-centered">Weather</h1>
                 <h2 class="subtitle is-2 has-text-centered" id="state-name"></h2>
-                  <div class="columns hide" id="weather-container">
+                  <div class="columns" id="weather-container">
                     <div class="column">
                       <div class="card">
-                        <div class="card-content covid-card-style" id="weather-temp">
+                        <div class="card-content light-theme-weather-card" id="weather-temp">
                           <h2 class="subtitle is-3">Temperature</h2>
                           <p class="subtitle is-4" id="temperature"></p>
                         </div>
@@ -152,8 +198,8 @@
                     <div class="column">
                       <div class="card">
                         <div
-                          class="card-content covid-card-style"
-                          id="covid-card-new"
+                          class="card-content light-theme-weather-card"
+                          id="weather-conditions"
                         >
                         <h2 class="subtitle is-3">Conditions</h2>
                         <p class="subtitle is-6" id="humidity"></p>

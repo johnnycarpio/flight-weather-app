@@ -11,8 +11,66 @@ var conditionIcon = document.createElement("img");
 var statusListEl = document.getElementById("status-list");
 var dateEl = document.getElementById("date");
 var stateNameEl = document.querySelector("#state-name");
-//Selects Flight Data card
 var flightInfo = document.querySelector("#flight_info");
+var buttonSwitchThemeEL = document.getElementById("btn-switch-theme");
+var bodyEl = document.querySelector("body");
+var navEl = document.getElementById("nav");
+var inputCardEl = document.getElementById("card-input");
+var flightStatusEl = document.getElementById("flight-status");
+var covidCardEl = document.getElementById("covid-card");
+var covidCardTotalEL = document.getElementById("covid-card-total");
+var covidCardNewEL = document.getElementById("covid-card-new");
+var covidCardDeathEL = document.getElementById("covid-card-deaths");
+var weatherCardEl = document.getElementById("weather-card");
+var weatherCondEL = document.getElementById("weather-conditions");
+var textColorEl = document.querySelector(".subtitle");
+
+var isCurrentlyLight = true;
+var themeHandler = function(event) {
+  event.preventDefault();
+  var currentTheme;
+  var switchToTheme;
+  if (isCurrentlyLight) {
+    currentTheme = "light";
+    switchToTheme = "dark";
+    isCurrentlyLight = false;
+  } else {
+    currentTheme = "dark";
+    switchToTheme = "light";
+    isCurrentlyLight = true;
+  }
+
+  buttonSwitchThemeEL.classList.remove(currentTheme+'-theme-button');
+  buttonSwitchThemeEL.classList.add(switchToTheme+'-theme-button');
+  buttonSwitchThemeEL.innerText = currentTheme.toUpperCase();
+
+  bodyEl.classList.remove(currentTheme+"-theme-body");
+  navEl.classList.remove(currentTheme+"-theme-nav");
+  inputCardEl.classList.remove(currentTheme+"-theme-input");
+  buttonEl.classList.remove(currentTheme+"-theme-button");
+  flightStatusEl.classList.remove(currentTheme+"-theme-status");
+  covidCardEl.classList.remove(currentTheme+"-theme-covid");
+  covidCardTotalEL.classList.remove(currentTheme+"-theme-covid-card");
+  covidCardNewEL.classList.remove(currentTheme+"-theme-covid-card");
+  covidCardDeathEL.classList.remove(currentTheme+"-theme-covid-card");
+  weatherCardEl.classList.remove(currentTheme+"-theme-weather");
+  weatherTempEl.classList.remove(currentTheme+"-theme-weather-card");
+  weatherCondEL.classList.remove(currentTheme+"-theme-weather-card");
+  bodyEl.classList.add(switchToTheme+"-theme-body");
+  navEl.classList.add(switchToTheme+"-theme-nav");
+  inputCardEl.classList.add(switchToTheme+"-theme-input");
+  buttonEl.classList.add(switchToTheme+"-theme-button");
+  flightStatusEl.classList.add(switchToTheme+"-theme-status");
+  covidCardEl.classList.add(switchToTheme+"-theme-covid");
+  covidCardTotalEL.classList.add(switchToTheme+"-theme-covid-card");
+  covidCardNewEL.classList.add(switchToTheme+"-theme-covid-card");
+  covidCardDeathEL.classList.add(switchToTheme+"-theme-covid-card");
+  weatherCardEl.classList.add(switchToTheme+"-theme-weather");
+  weatherTempEl.classList.add(switchToTheme+"-theme-weather-card");
+  weatherCondEL.classList.add(switchToTheme+"-theme-weather-card");
+
+  
+}
 
 userInputEl.setAttribute("list", "flights");
 
@@ -40,27 +98,32 @@ var flightHandler = function (event) {
     localStorage.setItem("searchedFlight", "[]");
   }
 
-
   if (code) {
     userInputEl.value = "";
     userInputEl.classList.remove("is-danger");
-    covidInfoEl.classList.remove("hide");
-    weatherInfoEl.classList.remove("hide");
     wrongAnswerEl.textContent = "";
     cityNameEl.innerHTML = "";
     conditionIcon.innerHTML = "";
   } else {
-    userInputEl.placeholder = "";
-    userInputEl.classList.remove("is-info");
-    userInputEl.classList.add("is-danger");
-    wrongAnswerEl.textContent = "Please Enter Flight Number";
+    showErrorMessage("Please Enter Flight Number");
   }
 
   getFlightInfo(code);
 };
 
+var showErrorMessage = function(errorMessage) {
+  userInputEl.placeholder = "";
+  userInputEl.classList.remove("is-info");
+  userInputEl.classList.add("is-danger");
+  wrongAnswerEl.textContent = errorMessage;
+  buttonEl.innerHTML = `Search Flights`;
+  statusListEl.innerHTML = "";
+  dateEl.innerHTML = "";
+  stateNameEl.innerHTML = "";
+}
 var getFlightInfo = function (code) {
   var apiUrl = `https://aerodatabox.p.rapidapi.com/flights/number/${code}`;
+  buttonEl.innerHTML = `<i class="fas fa-spinner fa-pulse"></i>`;
 
   fetch(apiUrl, {
     method: "GET",
@@ -81,18 +144,11 @@ var getFlightInfo = function (code) {
           old_flights.push(code);
           localStorage.setItem("searchedFlight", JSON.stringify(old_flights));
         } else {
-          userInputEl.placeholder = "";
-          userInputEl.classList.remove("is-info");
-          userInputEl.classList.add("is-danger");
-          wrongAnswerEl.id = "wrong-answer"
-          wrongAnswerEl.textContent = "Wrong Flight Number";
-          covidInfoEl.classList.add("hide");
-          weatherInfoEl.classList.add("hide");
-          statusListEl.innerHTML = "";
-          dateEl.innerHTML = "";
-          stateNameEl.innerHTML = "";
+          showErrorMessage("Wrong Flight Number");
         }
       });
+    } else {
+      showErrorMessage("Something went wrong while fetching the data");
     }
   });
 };
@@ -159,6 +215,7 @@ var displayCovidData = function (covidData) {
   document.querySelector(
     "#deaths-diff"
   ).textContent = `Reported Today + ${deathDiff}`;
+  buttonEl.innerHTML = `Search Flights`;
 };
 
 var getWeatherInfo = function (city) {
@@ -204,7 +261,6 @@ function displayFlightData(data) {
   console.log(h, m);
   var thistime = h > 12 ? h - 12 + ":" + m + " PM" : h + ":" + m + " AM";
 
-  
   dateEl.textContent = formattedTime;
   cityNameEl.classList.add("subtitle", "is-4", "has-text-centered");
   cityNameEl.id = "flight-cities";
@@ -245,3 +301,4 @@ function displayWeatherData(data) {
 }
 
 buttonEl.addEventListener("click", flightHandler);
+buttonSwitchThemeEL.addEventListener("click", themeHandler);
