@@ -116,7 +116,9 @@ var showErrorMessage = function(errorMessage) {
   userInputEl.classList.remove("is-info");
   userInputEl.classList.add("is-danger");
   wrongAnswerEl.textContent = errorMessage;
-  buttonEl.innerHTML = `Search Flights`;
+  buttonEl.innerHTML = `<button class="button light-theme-button" id="btn">
+  Search Flights
+</button>`;
   statusListEl.innerHTML = "";
   dateEl.innerHTML = "";
   stateNameEl.innerHTML = "";
@@ -141,7 +143,16 @@ var getFlightInfo = function (code) {
           console.log(data);
           displayFlightData(data);
           var old_flights = JSON.parse(localStorage.getItem("searchedFlight"));
-          old_flights.push(code);
+          var isPresent = false;
+          for (i = 0; i < old_flights.length; i++) {
+            if (old_flights[i] === code) {
+              return isPresent = true;
+            }
+          }
+          if (!isPresent) {
+            old_flights.push(code);
+          }
+          
           localStorage.setItem("searchedFlight", JSON.stringify(old_flights));
         } else {
           showErrorMessage("Wrong Flight Number");
@@ -215,7 +226,9 @@ var displayCovidData = function (covidData) {
   document.querySelector(
     "#deaths-diff"
   ).textContent = `Reported Today + ${deathDiff}`;
-  buttonEl.innerHTML = `Search Flights`;
+  buttonEl.innerHTML = `<button class="button light-theme-button" id="btn">
+  Search Flights
+</button>`;
 };
 
 var getWeatherInfo = function (city) {

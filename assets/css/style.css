@@ -161,13 +161,11 @@
   margin-top: 10px;
 }
 
-/* .subtitle {
-  color: #093159;
-} */
 
 #wrong-answer {
-  padding-left: 11rem;
   padding-top: 0.2rem;
+  color: red;
+  font-size: 11px;
 }
 
 .dark-theme-button {
