@@ -19,17 +19,27 @@ This app is fully functional including error handlers for wrong or missing fligh
 ## Technologies 
 
 HTML
+
 CSS
+
 Bulma
+
 JavaScript
+
 AeroDataBox API
+
 Airport-Info API
+
 Visual-Crossing-Weather API
+
 Covid-19-Statistics API
 
 ## Contributors
 
 Johnny Carpio
+
 Jose Lemuz
+
 Kota Sawada
+
 Tigran Balayan
