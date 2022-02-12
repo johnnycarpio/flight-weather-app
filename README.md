@@ -4,7 +4,7 @@ https://github.com/johnnycarpio/flight-weather-app
 
 https://johnnycarpio.github.io/flight-weather-app/
 
-![flight-weather-app](https://github.com/johnnycarpio/flight-weather-app/blob/main/Screen%20Shot%202022-02-12%20at%208.52.02%20AM.png)
+![flight-weather-app](./mockup.jpg)
 
 ## About the app
 
@@ -16,23 +16,27 @@ We achieved this by accessing one main API and chaining the results of said API 
 
 This app is fully functional including error handlers for wrong or missing flight information.
 
+Spinner in the Search button helps user to know if the fetch request is done.
+
+User can also change theme from light to dark by clicking same button in the center.
+
 ## Technologies 
 
-HTML
+* HTML
 
-CSS
+* CSS
 
-Bulma
+* Bulma
 
-JavaScript
+* JavaScript
 
-AeroDataBox API
+* AeroDataBox API
 
-Airport-Info API
+* Airport-Info API
 
-Visual-Crossing-Weather API
+* Visual-Crossing-Weather API
 
-Covid-19-Statistics API
+* Covid-19-Statistics API
 
 ## Contributors
 
